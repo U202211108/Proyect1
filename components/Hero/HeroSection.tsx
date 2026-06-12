@@ -80,7 +80,7 @@ export default function HeroSection() {
             text-sm
             uppercase
             tracking-[0.3em]
-            text-cyan-300
+            text-cyan-100/80
             md:text-base
           "
                 >

@@ -30,7 +30,7 @@ const memories = [
     },
 
     {
-        image: "/memories/tu_y_yo.jpeg",
+        image: "/memories/danico.jpeg",
         title: "Tú y Yo 💍",
         contain: true,
     },
