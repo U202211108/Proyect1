@@ -4,6 +4,12 @@ import { motion } from "framer-motion";
 
 import RomanticParticles from "../Particles/RomanticParticles";
 
+import LightRays
+    from "@/components/Effects/LightRays";
+
+import TwinklingStars
+    from "@/components/Effects/TwinklingStars";
+
 export default function HeroSection() {
 
     const scrollToLetter = () => {
@@ -30,6 +36,11 @@ export default function HeroSection() {
         text-center
       "
         >
+
+            <TwinklingStars />
+
+            <LightRays />
+
             <RomanticParticles />
 
             {/* Glow Background */}
@@ -95,12 +106,13 @@ export default function HeroSection() {
                         duration: 1,
                     }}
                     className="
-            gradient-text
+            gradient-text animated-gradient
             glow-text
             text-5xl
             font-bold
             leading-tight
             md:text-7xl
+            drop-shadow-[0_0_35px_rgba(0,212,255,0.35)]
           "
                 >
                     Nuestra Historia de Amor
@@ -110,8 +122,9 @@ export default function HeroSection() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{
-                        delay: 1,
-                        duration: 1,
+                        delay: 1.5,
+                        duration: 3,
+                        repeat: Infinity,
                     }}
                     className="
             mx-auto
@@ -127,37 +140,67 @@ export default function HeroSection() {
                     más hermosa de mi vida...
                 </motion.p>
 
-                <motion.button onClick={scrollToLetter}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{
-                        delay: 1.5,
-                        duration: 0.8,
+                <motion.button
+                    onClick={scrollToLetter}
+
+                    initial={{
+                        opacity: 0,
+                        y: 20,
                     }}
+
+                    animate={{
+                        opacity: 1,
+                        y: [0, -8, 0],
+                    }}
+
+                    transition={{
+                        opacity: {
+                            delay: 1.5,
+                            duration: 0.8,
+                        },
+
+                        y: {
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                        },
+                    }}
+
                     whileHover={{
                         scale: 1.05,
                     }}
+
                     whileTap={{
                         scale: 0.95,
                     }}
+
                     className="
-            mt-10
-            rounded-full
-            border
-            border-cyan-300/30
-            bg-white/10
-            px-10
-            py-4
-            text-lg
-            font-semibold
-            text-white
-            backdrop-blur-md
-            transition-all
-            duration-300
-            hover:border-cyan-200
-            hover:bg-cyan-400/20
-            hover:shadow-[0_0_30px_rgba(0,212,255,0.5)]
-          "
+        mt-10
+        rounded-full
+        border
+        border-cyan-300/30
+
+        bg-white/10
+
+        px-10
+        py-4
+
+        text-lg
+        font-semibold
+        text-white
+
+        backdrop-blur-md
+
+        transition-all
+        duration-300
+
+        hover:border-cyan-200
+        hover:bg-cyan-400/20
+
+        hover:shadow-[0_0_40px_rgba(0,212,255,0.6)]
+
+        shadow-[0_0_20px_rgba(0,212,255,0.25)]
+    "
                 >
                     Comenzar ✨
                 </motion.button>
